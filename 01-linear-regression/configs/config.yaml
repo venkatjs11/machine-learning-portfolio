@@ -1,0 +1,45 @@
+# ─── Data ────────────────────────────────────────────────────────
+data:
+  source: "sklearn"            # "sklearn" (Boston-like) | "csv"
+  csv_path: null               # Path to CSV if source == "csv"
+  target_column: "target"
+  test_size: 0.2
+  random_state: 42
+
+# ─── Preprocessing ───────────────────────────────────────────────
+preprocessing:
+  scale_features: true
+  scaler: "standard"           # "standard" | "minmax" | "robust"
+  handle_missing: "median"     # "mean" | "median" | "drop"
+  remove_outliers: false
+  outlier_threshold: 3.0       # Z-score threshold
+
+# ─── Model ───────────────────────────────────────────────────────
+model:
+  method: "ols"                # "ols" | "gradient_descent" | "ridge" | "lasso" | "elasticnet"
+
+  # Gradient Descent settings (used when method == "gradient_descent")
+  gradient_descent:
+    learning_rate: 0.01
+    max_iterations: 10000
+    tolerance: 1.0e-7
+    batch_size: null            # null = full batch; integer = mini-batch
+
+  # Regularization settings (used for ridge / lasso / elasticnet)
+  regularization:
+    alpha: 1.0
+    l1_ratio: 0.5              # Only for elasticnet
+    cv_folds: 5
+    alpha_search: [0.001, 0.01, 0.1, 1.0, 10.0, 100.0]
+
+# ─── Evaluation ──────────────────────────────────────────────────
+evaluation:
+  metrics: ["mse", "rmse", "mae", "r2", "adj_r2"]
+  diagnostics: true
+  save_plots: true
+  plots_dir: "outputs/plots"
+
+# ─── Output ──────────────────────────────────────────────────────
+output:
+  model_dir: "outputs/models"
+  log_file: "outputs/logs/training.log"

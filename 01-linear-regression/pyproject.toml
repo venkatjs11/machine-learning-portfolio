@@ -1,0 +1,29 @@
+[project]
+name = "linear-regression"
+version = "1.0.0"
+description = "Production-grade Linear Regression: from scratch to deployment"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Your Name", email = "you@example.com"}]
+readme = "README.md"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
