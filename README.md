@@ -54,4 +54,4 @@ make serve          # Start API server
 
 ## 👤 Author
 
-**Your Name** — [LinkedIn](https://linkedin.com/in/yourprofile) | [Email](mailto:you@example.com)
+**Venkatesh** — [LinkedIn](https://linkedin.com/in/venkateshsub/) | [Email](mailto:venkat.js11@gmail.com)
